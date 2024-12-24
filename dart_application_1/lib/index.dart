@@ -295,31 +295,70 @@ void main (){
 
 
 
-  var myMap = {
-    'key1': [ 1, 2, 3, 4, 5 ], // List
-    'key2': { 2,[6, 7, 8],9, [10,11] }, // Set (represented as a Map in Dart where keys are unique)
-    'key3': 'Hello, Dart!', // String
-    'key4': 12345, // Int
-    'key5': true, // Boolean
-  };
+  // var myMap = {
+  //   'key1': [ 1, 2, 3, 4, 5 ], // List
+  //   'key2': { 2,[6, 7, 8],9, [10,11] }, // Set (represented as a Map in Dart where keys are unique)
+  //   'key3': 'Hello, Dart!', // String
+  //   'key4': 12345, // Int
+  //   'key5': true, // Boolean
+  // };
 
   // Printing using a for loop (iterating through the map's entries)
-  myMap.forEach((key, value) {
-    print('Key: $key, Value: $value');
-    if(value is Map){
-      value.forEach((key2, value2) {
-      print('Key2: $key2, Value2: $value2');
-      });
-    }
-  });
+  // myMap.forEach((key, value) {
+  //   print('Key: $key, Value: $value');
+  //   if(value is Map){
+  //     value.forEach((key2, value2) {
+  //     print('Key2: $key2, Value2: $value2');
+  //     });
+  //   }
+  // });
 
   // Example of accessing specific values:
-  print('key1 (List): ${myMap['key1']}');
-  print('key2 (Map): ${myMap['key2']}');
-  print('key3 (String): ${myMap['key3']}');
-  print('key4 (Int): ${myMap['key4']}');
-  print('key5 (Boolean): ${myMap['key5']}');
+  // print('key1 (List): ${myMap['key1']}');
+  // print('key2 (Map): ${myMap['key2']}');
+  // print('key3 (String): ${myMap['key3']}');
+  // print('key4 (Int): ${myMap['key4']}');
+  // print('key5 (Boolean): ${myMap['key5']}');
 
- 
+ //  24-12-24
+  // var jalil = student(); // Incorrect: Classes are PascalCase in Dart
+  // jalil.id = 4542425;
+  // jalil.name = "Jalil Ahmed";
+
+  // student Shakoor = student(); // Incorrect: Classes are PascalCase
+  // Shakoor.id = 7553243;
+  // Shakoor.name = "Shakoor khan";
+
+  // jalil.showStdDetails();
+  // Shakoor.showStdDetails();
+
+  Student haziq = Student("Haziq Ahmed", 4545462);
+  haziq.showStdDetails();
+
+  Student rashid = Student.customConstructor("Rashid Ahmed", 4544543);
+  rashid.showStdDetails();
 }
+
+class Student {
+  String name = "";
+  int id = 0;
+
+  // Default constructor (not explicitly needed if you have a parameterized one)
+  // Student();
+
+  // Parameterized constructor
+  Student(this.name, this.id);
+
+  // Custom constructor (named constructor)
+  Student.customConstructor(String name, int id) {
+    print("A new student with id:$id is registered");
+    this.id = id;
+    this.name = name; // Corrected order: name should be assigned after id
+  }
+
+  void showStdDetails() {
+    print("$name having id: $id is our registered student.");
+  }
+}
+
  
